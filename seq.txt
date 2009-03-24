@@ -1,0 +1,36 @@
+SEQ(1)
+======
+
+NAME
+----
+seq - print a sequence of numbers
+
+SYNOPSIS
+--------
+seq
+
+seq _LAST_
+
+seq _FIRST_ _LAST_
+
+seq _FIRST _INCREMENT_ _LAST_
+
+seq _SEPARATOR_ _FIRST_ _INCREMENT_ _LAST_
+
+DESCRIPTION
+-----------
+
+Print mubers from _FIRST_ to _LAST_, in steps of _INCREMENT_.
+
+If _FIRST_ or _INCREMENT_ is omitted, they default to 1, even if _LAST_ is
+smaller than _FIRST_.
+
+If _SEPARATOR_ is omitted, it defaults to *\n*.
+
+BUGS
+----
+
+seq expects integer arguments.
+
+seq does not check that the arguments are sane.
+
