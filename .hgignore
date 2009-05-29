@@ -1,3 +1,4 @@
+syntax: glob
 *.html
 *.xml
 *.1
@@ -9,4 +10,4 @@ seq
 true
 yes
 
-.hg
+.git
