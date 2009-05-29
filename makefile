@@ -9,6 +9,7 @@ CFLAGS =
 PROGS = am \
 	echo \
 	false \
+	rm \
 	seq \
 	true \
 	yes
@@ -31,6 +32,9 @@ echo: license.h echo.c
 
 false: license.h false.c
 	@echo ' ' CC ' ' false; $(CC) $(CFLAGS) -o false false.c
+
+rm: license.h rm.c
+	@echo ' ' CC ' ' rm; $(CC) $(CFLAGS) -o rm rm.c
 
 seq: license.h seq.c
 	@echo ' ' CC ' ' seq; $(CC) $(CFLAGS) -o seq seq.c
