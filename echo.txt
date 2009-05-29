@@ -1,0 +1,17 @@
+ECHO(1)
+=======
+
+NAME
+----
+
+echo - print arguments
+
+SYNOPSIS
+--------
+
+echo [arguments...]
+
+DESCRIPTION
+-----------
+
+_Echo_ prints it's arguments, separated by blanks, to standard output.

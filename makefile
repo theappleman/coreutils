@@ -13,8 +13,10 @@ PROGS = am \
 	true \
 	yes
 
-MANDOCS = seq.1
-HTMLDOCS = seq.html
+MANDOCS= echo.1 \
+	seq.1
+HTMLDOCS = echo.html \
+	seq.html
 
 ##############################
 
@@ -51,6 +53,15 @@ seq.xml: seq.txt
 
 seq.1: seq.xml
 	@echo ' ' XMLTO ' ' seq; xmlto -m .manpage-normal.xsl man seq.xml
+
+echo.html: echo.txt
+	@echo ' ' ASCIIDOC ' ' echo; asciidoc echo.txt
+
+echo.xml: echo.txt
+	@echo ' ' ASCIIDOC ' ' echo; asciidoc -d manpage -b docbook echo.txt
+
+echo.1: echo.xml
+	@echo ' ' XMLTO ' ' echo; xmlto -m .manpage-normal.xsl man echo.xml
 
 # Housekeeping
 clean:
