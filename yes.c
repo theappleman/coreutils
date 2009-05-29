@@ -10,7 +10,6 @@
 #  include <u.h>
 #  include <libc.h>
 # endif
-# include <stdio.h>
 #endif
 
 int main(int argc, char **argv)
@@ -27,7 +26,7 @@ int main(int argc, char **argv)
 	}
 
 	while (1)
-		printf("%s\n", out);
+		s = write(1, out, strlen(out));
 
-	return 0;
+	return (s == -1) ? 1 : 0;
 }
