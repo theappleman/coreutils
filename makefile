@@ -50,22 +50,22 @@ doc: $(MANDOCS) $(HTMLDOCS)
 man: $(MANDOCS)
 
 seq.html: seq.txt
-	@echo ' ' ASCIIDOC ' ' seq; asciidoc seq.txt
+	@echo ' ' HTML ' ' seq; asciidoc seq.txt
 
 seq.xml: seq.txt
-	@echo ' ' ASCIIDOC ' ' seq; asciidoc -d manpage -b docbook seq.txt
+	@echo ' ' XML ' ' seq; asciidoc -d manpage -b docbook seq.txt
 
 seq.1: seq.xml
-	@echo ' ' XMLTO ' ' seq; xmlto -m .manpage-normal.xsl man seq.xml
+	@echo ' ' MAN ' ' seq; xmlto -m .manpage-normal.xsl man seq.xml
 
 echo.html: echo.txt
-	@echo ' ' ASCIIDOC ' ' echo; asciidoc echo.txt
+	@echo ' ' HTML ' ' echo; asciidoc echo.txt
 
 echo.xml: echo.txt
-	@echo ' ' ASCIIDOC ' ' echo; asciidoc -d manpage -b docbook echo.txt
+	@echo ' ' XML ' ' echo; asciidoc -d manpage -b docbook echo.txt
 
 echo.1: echo.xml
-	@echo ' ' XMLTO ' ' echo; xmlto -m .manpage-normal.xsl man echo.xml
+	@echo ' ' MAN ' ' echo; xmlto -m .manpage-normal.xsl man echo.xml
 
 # Housekeeping
 clean:
