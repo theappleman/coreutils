@@ -1,5 +1,17 @@
 #include "license.h"
 
+#ifdef __TINYC__
+# include <tcclib.h>
+#else
+# ifdef __GNUC__
+#  include <stdlib.h>
+# else
+#  include <u.h>
+#  include <libc.h>
+# endif
+# include <stdio.h>
+#endif
+
 int seq(char *separator, int first, int increment, int last);
 
 int main(int argc, char **argv)

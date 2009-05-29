@@ -7,7 +7,18 @@
 #define F fprintf(stderr,
 #define C continue;
 
-#include <tcclib.h>
+#ifdef __TINYC__
+# include <tcclib.h>
+#else
+# ifdef __GNUC__
+#  include <stdlib.h>
+#  include <string.h>
+# else
+#  include <u.h>
+# endif
+# include <stdio.h>
+#endif
+
 #include <sys/stat.h>
 
 #ifndef RULES

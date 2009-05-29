@@ -1,6 +1,17 @@
 #include "license.h"
 
-#include <tcclib.h>
+#ifdef __TINYC__
+# include <tcclib.h>
+#else
+# ifdef __GNUC__
+#  include <stdlib.h>
+#  include <string.h>
+# else
+#  include <u.h>
+#  include <libc.h>
+# endif
+# include <stdio.h>
+#endif
 
 int main(int argc, char **argv)
 {
