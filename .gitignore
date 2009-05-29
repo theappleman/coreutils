@@ -1,5 +1,10 @@
+*.html
+*.xml
+*.1
+
 am
 echo
 false
+seq
 true
 yes
