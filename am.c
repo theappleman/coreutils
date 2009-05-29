@@ -13,8 +13,6 @@
 # ifdef __GNUC__
 #  include <stdlib.h>
 #  include <string.h>
-# else
-#  include <u.h>
 # endif
 # include <stdio.h>
 #endif

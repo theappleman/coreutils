@@ -5,9 +5,6 @@
 #else
 # ifdef __GNUC__
 #  include <stdlib.h>
-# else
-#  include <u.h>
-#  include <libc.h>
 # endif
 # include <stdio.h>
 #endif
