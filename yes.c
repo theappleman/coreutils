@@ -9,6 +9,8 @@
 # endif
 #endif
 
+#include <unistd.h>
+
 int main(int argc, char **argv)
 {
 	int s = argc == 1 ? 1 : 0;
