@@ -2,6 +2,8 @@
 *.xml
 *.1
 
+*.o
+
 am
 echo
 false
