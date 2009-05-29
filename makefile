@@ -14,9 +14,12 @@ PROGS = am \
 	true \
 	yes
 
-MANDOCS= echo.1 \
+MANDOCS = am.1 \
+	echo.1 \
 	seq.1
-HTMLDOCS = echo.html \
+
+HTMLDOCS = am.html \
+	echo.html \
 	seq.html
 
 ##############################
@@ -46,8 +49,17 @@ yes: license.h yes.c
 	@echo ' ' CC ' ' yes; $(CC) $(CFLAGS) -o yes yes.c
 
 # Documentation
-doc: $(MANDOCS) $(HTMLDOCS)
+doc: man $(HTMLDOCS)
 man: $(MANDOCS)
+
+am.html: am.txt
+	@echo ' ' HTML ' ' am; asciidoc am.txt
+
+am.xml: am.txt
+	@echo ' ' XML ' ' am; asciidoc -d manpage -b docbook am.txt
+
+am.1: am.xml
+	@echo ' ' MAN ' ' am; xmlto -m .manpage-normal.xsl man am.xml
 
 seq.html: seq.txt
 	@echo ' ' HTML ' ' seq; asciidoc seq.txt
