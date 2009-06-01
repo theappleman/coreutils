@@ -24,7 +24,7 @@ HTMLDOCS = am.html \
 
 ##############################
 
-all:QV: $PROGS
+all:QV: ${PROGS}
 
 # Programs
 am:Q: license.h am.c
