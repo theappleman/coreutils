@@ -50,8 +50,11 @@ yes: license.h yes.c
 
 # Documentation
 doc: man html
-man: $(MANDOCS)
 html: $(HTMLDOCS)
+man: $(MANDOCS)
+	@echo ' ' FIX ' ' man; \
+	sed -i -e '10s/ "\[FIXME: source\]" "\[FIXME: manual\]"//' ${MANDOCS}
+
 
 am.html: am.txt
 	@echo ' ' HTML ' ' am; asciidoc am.txt

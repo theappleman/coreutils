@@ -50,8 +50,10 @@ yes:Q: license.h yes.c
 
 # Documentation
 doc:QV: man html
-man:QV: ${MANDOCS}
 html:QV: ${HTMLDOCS}
+man:QV: ${MANDOCS}
+	echo ' ' FIX ' ' man; \
+	sed -i -e '10s/ "\[FIXME: source\]" "\[FIXME: manual\]"//' ${MANDOCS}
 
 am.html:Q: am.txt
 	echo ' ' HTML ' ' am; asciidoc am.txt
