@@ -109,12 +109,14 @@ install-man: man
 
 uninstall:
 	@for i in $(PROGS); do \
-		echo ' ' UNINS ' ' $$i; \
-		rm -f $(DESTDIR)/$(PREFIX)/$$i; \
-	done
-	@-rmdir $(DESTDIR)/$(PREFIX)/
+		test -f $(DESTDIR)/$(BINDIR)/$$i && \
+		echo ' ' UNINS ' ' $$i && \
+		rm -f $(DESTDIR)/$(BINDIR)/$$i; \
+	done || true
+	@-rmdir $(DESTDIR)/$(BINDIR)/
 	@for i in $(MAN1DOCS); do \
-		echo ' ' UNMAN ' ' $$i; \
+		test -f $(DESTDIR)/$(MANDIR)/man1/$$i && \
+		echo ' ' UNMAN ' ' $$i && \
 		rm -f $(DESTDIR)/$(MANDIR)/man1/$$i; \
-	done
+	done || true
 	@-rmdir $(DESTDIR)/$(MANDIR)/man1
