@@ -10,10 +10,8 @@
 #ifdef __TINYC__
 # include <tcclib.h>
 #else
-# ifdef __GNUC__
-#  include <stdlib.h>
-#  include <string.h>
-# endif
+# include <stdlib.h>
+# include <string.h>
 # include <stdio.h>
 #endif
 

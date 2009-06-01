@@ -3,9 +3,7 @@
 #ifdef __TINYC__
 # include <tcclib.h>
 #else
-# ifdef __GNUC__
-#  include <stdlib.h>
-# endif
+# include <stdlib.h>
 # include <stdio.h>
 #endif
 
