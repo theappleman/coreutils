@@ -27,26 +27,8 @@ HTMLDOCS = am.html \
 all:QV: ${PROGS}
 
 # Programs
-am:Q: license.h am.c
-	echo ' ' CC ' ' am; ${CC} ${CFLAGS} -o am am.c
-
-echo:Q: license.h echo.c
-	echo ' ' CC ' ' echo; ${CC} ${CFLAGS} -o echo echo.c
-
-false:Q: license.h false.c
-	echo ' ' CC ' ' false; ${CC} ${CFLAGS} -o false false.c
-
-rm:Q: license.h rm.c
-	echo ' ' CC ' ' rm; ${CC} ${CFLAGS} -o rm rm.c
-
-seq:Q: license.h seq.c
-	echo ' ' CC ' ' seq; ${CC} ${CFLAGS} -o seq seq.c
-
-true:Q: license.h true.c
-	echo ' ' CC ' ' true; ${CC} ${CFLAGS} -o true true.c
-
-yes:Q: license.h yes.c
-	echo ' ' CC ' ' yes; ${CC} ${CFLAGS} -o yes yes.c
+%:Q: %.c
+	echo ' ' CC ' ' $stem; ${CC} ${CFLAGS} -o $stem $stem.c
 
 # Documentation
 doc:QV: man html
@@ -55,32 +37,14 @@ man:QV: ${MANDOCS}
 	echo ' ' FIX ' ' man; \
 	sed -i -e '10s/ "\[FIXME: source\]" "\[FIXME: manual\]"//' ${MANDOCS}
 
-am.html:Q: am.txt
-	echo ' ' HTML ' ' am; asciidoc am.txt
+%.html:Q: %.txt
+	echo ' ' HTML ' ' $stem; asciidoc $stem.txt
 
-am.xml:Q: am.txt
-	echo ' ' XML ' ' am; asciidoc -d manpage -b docbook am.txt
+%.xml:Q: %.txt
+	echo ' ' XML ' ' $stem; asciidoc -d manpage -b docbook $stem.txt
 
-am.1:Q: am.xml
-	echo ' ' MAN ' ' am; xmlto -m .manpage-normal.xsl man am.xml
-
-seq.html:Q: seq.txt
-	echo ' ' HTML ' ' seq; asciidoc seq.txt
-
-seq.xml:Q: seq.txt
-	echo ' ' XML ' ' seq; asciidoc -d manpage -b docbook seq.txt
-
-seq.1:Q: seq.xml
-	echo ' ' MAN ' ' seq; xmlto -m .manpage-normal.xsl man seq.xml
-
-echo.html:Q: echo.txt
-	echo ' ' HTML ' ' echo; asciidoc echo.txt
-
-echo.xml:Q: echo.txt
-	echo ' ' XML ' ' echo; asciidoc -d manpage -b docbook echo.txt
-
-echo.1:Q: echo.xml
-	echo ' ' MAN ' ' echo; xmlto -m .manpage-normal.xsl man echo.xml
+%.1:Q: %.xml
+	echo ' ' MAN ' ' $stem; xmlto -m .manpage-normal.xsl man $stem.xml
 
 # Housekeeping
 clean:QV:
