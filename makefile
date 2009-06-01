@@ -49,8 +49,9 @@ yes: license.h yes.c
 	@echo ' ' CC ' ' yes; $(CC) $(CFLAGS) -o yes yes.c
 
 # Documentation
-doc: man $(HTMLDOCS)
+doc: man html
 man: $(MANDOCS)
+html: $(HTMLDOCS)
 
 am.html: am.txt
 	@echo ' ' HTML ' ' am; asciidoc am.txt
