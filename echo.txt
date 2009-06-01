@@ -14,4 +14,4 @@ echo [arguments...]
 DESCRIPTION
 -----------
 
-_Echo_ prints it's arguments, separated by blanks, to standard output.
+_Echo_ prints its arguments, separated by blanks, to standard output.
