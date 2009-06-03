@@ -39,7 +39,7 @@ time_t M(char *f)
 	struct stat s;
 	N(f, i);
 	x = f[i];
-	f[i] = 0; 
+	f[i] = 0;
 	j = stat(f, &s);
 	f[i] = x;
 	R j < 0 ? 0 : s.st_mtime;
@@ -141,13 +141,13 @@ int main(int u, char **v)
 					r += strcspn(r, ")");
 					*r++ = 0;
 					n = (char *) getenv(n);
-					if (n) 
+					if (n)
 						q = strcpy(q, n) + strlen(n);
 					C
 				}
 				if (*r == r[1])
 					++r;
-			} 
+			}
 			if (*r == '=' && *l != '\t' && !m) {
 				*q = 0;
 				m = p;
