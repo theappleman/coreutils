@@ -12,5 +12,6 @@ cat [ _file_ _..._ ]
 DESCRIPTION
 -----------
 _Cat_ reads each _file_ in sequence and writes it on the standard output.
+The file _-_ shall be considered as the standard input.
 
 If no _file_ is given, _cat_ reads from the standard input.
