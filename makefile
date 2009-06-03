@@ -30,26 +30,8 @@ HTMLDOCS = \
 all: $(PROGS)
 
 # Programs
-cat: license.h cat.c
-	@echo ' ' CC ' ' cat; $(CC) $(CFLAGS) -o cat cat.c
-
-echo: license.h echo.c
-	@echo ' ' CC ' ' echo; $(CC) $(CFLAGS) -o echo echo.c
-
-false: license.h false.c
-	@echo ' ' CC ' ' false; $(CC) $(CFLAGS) -o false false.c
-
-rm: license.h rm.c
-	@echo ' ' CC ' ' rm; $(CC) $(CFLAGS) -o rm rm.c
-
-seq: license.h seq.c
-	@echo ' ' CC ' ' seq; $(CC) $(CFLAGS) -o seq seq.c
-
-true: license.h true.c
-	@echo ' ' CC ' ' true; $(CC) $(CFLAGS) -o true true.c
-
-yes: license.h yes.c
-	@echo ' ' CC ' ' yes; $(CC) $(CFLAGS) -o yes yes.c
+.c:
+	@echo ' ' CC ' ' $@; $(CC) $(CFLAGS) -o $@ $<
 
 # Documentation
 doc: man html
@@ -58,32 +40,14 @@ man: $(MANDOCS)
 	@echo ' ' FIX ' ' man; \
 	sed -i -e '10s/ "\[FIXME: source\]" "\[FIXME: manual\]"//' ${MANDOCS}
 
-cat.html: cat.txt
-	@echo ' ' HTML ' ' cat; asciidoc cat.txt
+%.html: %.txt
+	@echo ' ' HTML ' ' $@; asciidoc $<
 
-cat.xml: cat.txt
-	@echo ' ' XML ' ' cat; asciidoc -d manpage -b docbook cat.txt
+%.xml: %.txt
+	@echo ' ' XML ' ' $@; asciidoc -d manpage -b docbook $<
 
-cat.1: cat.xml
-	@echo ' ' MAN ' ' cat; xmlto -m .manpage-normal.xsl man cat.xml
-
-echo.html: echo.txt
-	@echo ' ' HTML ' ' echo; asciidoc echo.txt
-
-echo.xml: echo.txt
-	@echo ' ' XML ' ' echo; asciidoc -d manpage -b docbook echo.txt
-
-echo.1: echo.xml
-	@echo ' ' MAN ' ' echo; xmlto -m .manpage-normal.xsl man echo.xml
-
-seq.html: seq.txt
-	@echo ' ' HTML ' ' seq; asciidoc seq.txt
-
-seq.xml: seq.txt
-	@echo ' ' XML ' ' seq; asciidoc -d manpage -b docbook seq.txt
-
-seq.1: seq.xml
-	@echo ' ' MAN ' ' seq; xmlto -m .manpage-normal.xsl man seq.xml
+%.1: %.xml
+	@echo ' ' MAN ' ' $@; xmlto -m .manpage-normal.xsl man $<
 
 # Housekeeping
 clean:
