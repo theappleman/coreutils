@@ -80,15 +80,6 @@ cat.xml: cat.txt
 cat.1: cat.xml
 	@echo ' ' MAN ' ' cat; xmlto -m .manpage-normal.xsl man cat.xml
 
-seq.html: seq.txt
-	@echo ' ' HTML ' ' seq; asciidoc seq.txt
-
-seq.xml: seq.txt
-	@echo ' ' XML ' ' seq; asciidoc -d manpage -b docbook seq.txt
-
-seq.1: seq.xml
-	@echo ' ' MAN ' ' seq; xmlto -m .manpage-normal.xsl man seq.xml
-
 echo.html: echo.txt
 	@echo ' ' HTML ' ' echo; asciidoc echo.txt
 
@@ -97,6 +88,15 @@ echo.xml: echo.txt
 
 echo.1: echo.xml
 	@echo ' ' MAN ' ' echo; xmlto -m .manpage-normal.xsl man echo.xml
+
+seq.html: seq.txt
+	@echo ' ' HTML ' ' seq; asciidoc seq.txt
+
+seq.xml: seq.txt
+	@echo ' ' XML ' ' seq; asciidoc -d manpage -b docbook seq.txt
+
+seq.1: seq.xml
+	@echo ' ' MAN ' ' seq; xmlto -m .manpage-normal.xsl man seq.xml
 
 # Housekeeping
 clean:
