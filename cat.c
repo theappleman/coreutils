@@ -3,6 +3,10 @@
 #include <unistd.h>
 #define O_RDONLY 00 /* from bits/fcntl.h */
 
+#ifndef BUFSIZ
+# define BUFSIZ 8192
+#endif
+
 void cat_file(char *);
 
 int main(int argc, char **argv)
@@ -18,11 +22,13 @@ int main(int argc, char **argv)
 void cat_file(char *fname)
 {
 	int fd = 0; /* stdin default */
-	char buffer[1024] = "";
+	char buffer[BUFSIZ];
+	int n;
+
 	if (strcmp("-", fname) && (fd = open(fname, O_RDONLY)) == -1)
 			return;
-	while (read(fd, &buffer, 1024) > 0)
-		write(1, buffer, 1024);
+	while ((n = read(fd, buffer, BUFSIZ)) > 0)
+		write(1, buffer, n);
 	if (fd)
 		close(fd);
 	/* TODO: bother checking the return code */
