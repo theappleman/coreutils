@@ -7,6 +7,7 @@ CC = tcc
 CFLAGS =
 
 PROGS = am \
+	cat \
 	echo \
 	false \
 	rm \
@@ -15,10 +16,12 @@ PROGS = am \
 	yes
 
 MANDOCS = am.1 \
+	cat.1 \
 	echo.1 \
 	seq.1
 
 HTMLDOCS = am.html \
+	cat.html \
 	echo.html \
 	seq.html
 

@@ -7,6 +7,7 @@ CC = tcc
 CFLAGS =
 
 PROGS = am \
+	cat \
 	echo \
 	false \
 	rm \
@@ -15,10 +16,12 @@ PROGS = am \
 	yes
 
 MANDOCS = am.1 \
+	cat.1 \
 	echo.1 \
 	seq.1
 
 HTMLDOCS = am.html \
+	cat.html \
 	echo.html \
 	seq.html
 
@@ -29,6 +32,9 @@ all: $(PROGS)
 # Programs
 am: license.h am.c
 	@echo ' ' CC ' ' am; $(CC) $(CFLAGS) -o am am.c
+
+cat: license.h cat.c
+	@echo ' ' CC ' ' cat; $(CC) $(CFLAGS) -o cat cat.c
 
 echo: license.h echo.c
 	@echo ' ' CC ' ' echo; $(CC) $(CFLAGS) -o echo echo.c
@@ -64,6 +70,15 @@ am.xml: am.txt
 
 am.1: am.xml
 	@echo ' ' MAN ' ' am; xmlto -m .manpage-normal.xsl man am.xml
+
+cat.html: cat.txt
+	@echo ' ' HTML ' ' cat; asciidoc cat.txt
+
+cat.xml: cat.txt
+	@echo ' ' XML ' ' cat; asciidoc -d manpage -b docbook cat.txt
+
+cat.1: cat.xml
+	@echo ' ' MAN ' ' cat; xmlto -m .manpage-normal.xsl man cat.xml
 
 seq.html: seq.txt
 	@echo ' ' HTML ' ' seq; asciidoc seq.txt

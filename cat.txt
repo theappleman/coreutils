@@ -1,0 +1,16 @@
+cat(1)
+======
+
+NAME
+----
+cat - catenate files
+
+SYNOPSIS
+--------
+cat [ _file_ _..._ ]
+
+DESCRIPTION
+-----------
+_Cat_ reads each _file_ in sequence and writes it on the standard output.
+
+If no _file_ is given, _cat_ reads from the standard input.
