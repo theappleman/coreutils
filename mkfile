@@ -6,7 +6,7 @@ MANDIR = ${PREFIX}/share/man
 CC = tcc
 CFLAGS =
 
-PROGS = am \
+PROGS = \
 	cat \
 	echo \
 	false \
@@ -15,12 +15,12 @@ PROGS = am \
 	true \
 	yes
 
-MANDOCS = am.1 \
+MANDOCS = \
 	cat.1 \
 	echo.1 \
 	seq.1
 
-HTMLDOCS = am.html \
+HTMLDOCS = \
 	cat.html \
 	echo.html \
 	seq.html

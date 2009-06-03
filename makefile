@@ -6,7 +6,7 @@ MANDIR = $(PREFIX)/share/man
 CC = tcc
 CFLAGS =
 
-PROGS = am \
+PROGS = \
 	cat \
 	echo \
 	false \
@@ -15,12 +15,12 @@ PROGS = am \
 	true \
 	yes
 
-MANDOCS = am.1 \
+MANDOCS = \
 	cat.1 \
 	echo.1 \
 	seq.1
 
-HTMLDOCS = am.html \
+HTMLDOCS = \
 	cat.html \
 	echo.html \
 	seq.html
@@ -30,9 +30,6 @@ HTMLDOCS = am.html \
 all: $(PROGS)
 
 # Programs
-am: license.h am.c
-	@echo ' ' CC ' ' am; $(CC) $(CFLAGS) -o am am.c
-
 cat: license.h cat.c
 	@echo ' ' CC ' ' cat; $(CC) $(CFLAGS) -o cat cat.c
 
@@ -60,16 +57,6 @@ html: $(HTMLDOCS)
 man: $(MANDOCS)
 	@echo ' ' FIX ' ' man; \
 	sed -i -e '10s/ "\[FIXME: source\]" "\[FIXME: manual\]"//' ${MANDOCS}
-
-
-am.html: am.txt
-	@echo ' ' HTML ' ' am; asciidoc am.txt
-
-am.xml: am.txt
-	@echo ' ' XML ' ' am; asciidoc -d manpage -b docbook am.txt
-
-am.1: am.xml
-	@echo ' ' MAN ' ' am; xmlto -m .manpage-normal.xsl man am.xml
 
 cat.html: cat.txt
 	@echo ' ' HTML ' ' cat; asciidoc cat.txt
