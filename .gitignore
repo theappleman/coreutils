@@ -4,7 +4,6 @@
 
 *.o
 
-am
 cat
 echo
 false

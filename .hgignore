@@ -5,7 +5,6 @@ syntax: glob
 
 *.o
 
-am
 cat
 echo
 false
