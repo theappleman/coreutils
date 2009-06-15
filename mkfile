@@ -8,6 +8,7 @@ CFLAGS =
 
 PROGS = \
 	cat \
+	create \
 	echo \
 	false \
 	rm \
