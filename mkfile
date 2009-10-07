@@ -13,6 +13,7 @@ PROGS = \
 	false \
 	rm \
 	seq \
+	sort \
 	true \
 	yes
 
