@@ -6,6 +6,7 @@
  * sort numerically
  */
 int uniq;
+int coun;
 
 struct tnode {
 	char *word;
@@ -24,6 +25,8 @@ int main(int argc, char **argv)
 		while (c = *++argv[0])
 			switch(c) {
 			case 'u':	uniq = 1;
+					break;
+			case 'c':	coun = 1;
 					break;
 			default:	return 1;
 			};
@@ -76,7 +79,10 @@ void treeprint(struct tnode *p)
 	if (p != NULL) {
 		treeprint(p->left);
 		if (uniq)
-			printf("%4d\t%s\n", p->count, p->word);
+			if (coun)
+				printf("%4d\t%s\n", p->count, p->word);
+			else
+				printf("%s\n", p->word);
 		else
 			for (i = 0; i < p->count; ++i)
 				printf("%s\n", p->word);
