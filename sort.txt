@@ -1,0 +1,20 @@
+sort(1)
+=======
+
+NAME
+----
+sort - sort lines of text files
+
+SYNOPSIS
+--------
+*sort* [_-u_] [_-c_] < _file_
+
+DESCRIPTION
+-----------
+Sort lines in files. Repeated lines are counted and do not need to be
+adjacent.
+
+-u::	Show any repeated lines a single time.
+
+-c::	With _-u_, print the number of times a repeated line appears.
+

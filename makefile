@@ -20,12 +20,14 @@ PROGS = \
 MANDOCS = \
 	cat.1 \
 	echo.1 \
-	seq.1
+	seq.1 \
+	sort.1
 
 HTMLDOCS = \
 	cat.html \
 	echo.html \
-	seq.html
+	seq.html \
+	sort.html
 
 ##############################
 
