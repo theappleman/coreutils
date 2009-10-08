@@ -71,12 +71,15 @@ struct tnode *addtree(struct tnode *p, char *w)
 
 void treeprint(struct tnode *p)
 {
+	int i;
+
 	if (p != NULL) {
 		treeprint(p->left);
 		if (uniq)
 			printf("%4d\t%s\n", p->count, p->word);
 		else
-			printf("%s\n", p->word);
+			for (i = 0; i < p->count; ++i)
+				printf("%s\n", p->word);
 		treeprint(p->right);
 		free(p->word);
 		free(p);
