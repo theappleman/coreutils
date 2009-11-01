@@ -11,6 +11,7 @@ PROGS = \
 	create \
 	echo \
 	false \
+	fuzzy \
 	rm \
 	seq \
 	sort \
@@ -20,12 +21,14 @@ PROGS = \
 MANDOCS = \
 	cat.1 \
 	echo.1 \
+	fuzzy.1 \
 	seq.1 \
 	sort.1
 
 HTMLDOCS = \
 	cat.html \
 	echo.html \
+	fuzzy.html \
 	seq.html \
 	sort.html
 

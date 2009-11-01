@@ -1,0 +1,20 @@
+fuzzy(1)
+========
+
+NAME
+----
+fuzzy - print the time... ish
+
+SYNOPSIS
+--------
+fuzzy [_-n_]
+
+DESCRIPTION
+-----------
+
+_Fuzzy_ prints the current time of day in a human readable form. It does so in
+a roundabout, inaccurate fashion; it will be a maximum of 3 minutes off the
+correct time.
+
+_Fuzzy_ understands _five_, _ten_, fifteen (_quarter_), _twenty_,
+_twenty-five_ *past* and *to* the hour, as well as _half past_ and on the hour.
