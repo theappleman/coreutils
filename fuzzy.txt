@@ -18,3 +18,7 @@ correct time.
 
 _Fuzzy_ understands _five_, _ten_, fifteen (_quarter_), _twenty_,
 _twenty-five_ *past* and *to* the hour, as well as _half past_ and on the hour.
+
+-n::
+	Drop the final two bytes (the full stop and the newline) from the
+	output.
