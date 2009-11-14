@@ -4,9 +4,9 @@
 # include <tcclib.h>
 #else
 # include <stdlib.h>
-# include <string.h>
 #endif
 
+#include <string.h>
 #include <unistd.h>
 
 int main(int argc, char **argv)

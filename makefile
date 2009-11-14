@@ -4,11 +4,10 @@ BINDIR = $(PREFIX)/bin
 MANDIR = $(PREFIX)/share/man
 
 CC = tcc
-CFLAGS =
+CFLAGS = -g -Wall -Werror -O0
 
 PROGS = \
 	cat \
-	create \
 	echo \
 	false \
 	fuzzy \

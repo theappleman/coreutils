@@ -1,6 +1,8 @@
 #include "license.h"
 
 #include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
 #define O_RDONLY 00 /* from bits/fcntl.h */
 
 #ifndef BUFSIZ
