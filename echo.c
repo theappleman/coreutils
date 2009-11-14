@@ -2,10 +2,9 @@
 
 #ifdef __TINYC__
 # include <tcclib.h>
-#else
-# include <string.h>
 #endif
 
+#include <string.h>
 #include <unistd.h>
 
 int main(int argc, char **argv)
