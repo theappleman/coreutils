@@ -6,13 +6,17 @@ import (
 	"flag";
 )
 
-var punct = flag.Bool("n", false, "Do not print trailing punctuation");
+var punct = flag.Bool("n", false, "Do not print trailing punctuation")
 
-var times = []string{"", "Five", "Ten", "Quarter", "Twenty", "Twenty-five", "Half"};
+var times = []string{"", "Five", "Ten", "Quarter", "Twenty", "Twenty-five", "Half"}
 var hours = []string{"twelve", "one", "two", "three", "four", "five", "six", "seven"
-			"eight", "nine", "ten", "eleven"};
+	"eight",
+	"nine", "ten", "eleven",
+}
 var capHours = []string{"Twelve", "One", "Two", "Three", "Four", "Five", "Six", "Seven"
-			"Eight", "Nine", "Ten", "Eleven"};
+	"Eight",
+	"Nine", "Ten", "Eleven",
+}
 
 func main() {
 	flag.Parse();
@@ -21,9 +25,15 @@ func main() {
 }
 
 func fuzzy(hour, min int) {
-	if hour < 0 { hour = -hour; }
-	if min < 0 { min = -min; }
-	if min >= 60 { min %= 60; }
+	if hour < 0 {
+		hour = -hour
+	}
+	if min < 0 {
+		min = -min
+	}
+	if min >= 60 {
+		min %= 60
+	}
 
 	for i := 0; i <= 12; i++ {
 		var n, x int;
@@ -35,8 +45,8 @@ func fuzzy(hour, min int) {
 		}
 
 		x = i * 5;
-		if min >= x && min < x + 3 {
-			fclock(hour + n, i);
+		if min >= x && min < x+3 {
+			fclock(hour+n, i);
 			return;
 		}
 	}
@@ -44,22 +54,23 @@ func fuzzy(hour, min int) {
 }
 
 func fclock(hour, min int) {
-	if hour > 11 { hour %=12 }
+	if hour > 11 {
+		hour %= 12
+	}
 	if min == 0 {
-		fmt.Printf("%s o'clock", capHours[hour]);
+		fmt.Printf("%s o'clock", capHours[hour])
 	} else {
 		var n string;
 		if min <= 6 {
-			n = "past";
+			n = "past"
 		} else {
-			n = "to";
+			n = "to"
 		}
 
 		fmt.Printf("%s %s %s", times[min], n, hours[hour]);
 	}
 
 	if !*punct {
-		fmt.Printf("%s", ".\n");
+		fmt.Printf("%s", ".\n")
 	}
 }
-
