@@ -6,7 +6,6 @@ syntax: glob
 *.o
 
 cat
-create
 echo
 false
 rm
